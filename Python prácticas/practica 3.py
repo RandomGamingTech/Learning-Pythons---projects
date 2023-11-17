@@ -1,0 +1,1 @@
+print("El nombre de tu cerveza sería:\n\"" + input("Enter your mother\'s name: ")  +  " " + input("Enter your city\'s name: ") + "\"")
