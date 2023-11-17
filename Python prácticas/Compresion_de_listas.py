@@ -136,5 +136,5 @@ print(valores_cuadrado)
     
 '''
 temperatura_fahrenheit = [32, 212, 275]
-grados_celsius = [grado -32 for grado in temperatura_fahrenheit if grado *5/9 >= 0]
+grados_celsius = [grado -32 for grado in temperatura_fahrenheit if grado]
 print(grados_celsius)
