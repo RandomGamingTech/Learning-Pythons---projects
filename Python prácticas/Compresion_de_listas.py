@@ -126,7 +126,7 @@ print(metros)
 '''
 
 '''
--- PRACTICAS COMPRESION DE LISTAS
+-- PRACTICAS COMPRESION DE LISTAS 1
 
     -Aquí nos pedían una LISTA llamada valores_cuadrado donde se almacenen los CUADRADOS de la lista llamada VALORES.
     
@@ -135,6 +135,16 @@ valores_cuadrado = [numero ** 2 for numero in valores]
 print(valores_cuadrado)
     
 '''
+
+'''
+-   PRÁCTICA COMPRESION DE LISTAS 2
+
+    - OJO, aquí tuvimos que RESTAR (grado - 32) y luego ya * 5 / 9. ESTO PORQUE PYTHON sigue la JERARQUÍA DE OPERACIONES, entonces
+        como en la jerarquía tradicional, PRIMERO RESUELVE LO DE LOS PARÉNTESIS. Luego los exponentes, luego LA MULTIPLICACIÓN Y DIVISIÓN DE
+        IZQUIERDA A DERECHA, al final suma y resta (de izquierda a derecha)
+
+'''
+
 temperatura_fahrenheit = [32, 212, 275]
-grados_celsius = [grado -32 for grado in temperatura_fahrenheit if grado]
+grados_celsius = [(grado -32) *5/9 for grado in temperatura_fahrenheit]
 print(grados_celsius)

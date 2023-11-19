@@ -146,3 +146,16 @@ numeros = list(zip(lista1,lista2,lista3))
 print(numeros)
 
 '''
+
+print("Ingresa dos números enteros")
+numero1 = int(input("Ingresa tu primer número: "))
+numero2 = int(input("Ingresa tu segundo número: "))
+
+while numero1 or numero2 >=0:
+    if numero1 and numero2 < 0:
+        print("Tus dos números son negativos")
+        break
+    elif numero1 or numero2 >= 0:
+        print("Alguno de tus dos números es positivo")
+        break
+    

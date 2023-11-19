@@ -51,7 +51,7 @@
 
 #mi_bool = 1 == 10 or 3 == 3
 #print(mi_bool)
-#>>>False
+#>>>True
 
 #La única forma en la que or puede resultar FALSO es cuando TODAS LAS COMPARACIONES son FALSAS.
 #mi_bool = 1 == 10 or 3 == 30
@@ -100,3 +100,5 @@
 
 
  
+mi_bool = 1 == 10 or 3 == 3
+print(mi_bool)

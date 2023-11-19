@@ -225,12 +225,12 @@ while numeros >= 0:
 '''
     
                 
+respuesta = "s"
 
+while respuesta == "s":
+    respuesta = input("quieres seguir? (s/n): ")
     
 
-        
-  
-    
     
 
     
