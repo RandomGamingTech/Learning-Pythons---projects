@@ -25,9 +25,50 @@ Características:
 
 '''
 
-nombre = input("Hola, ¿cuál es tu nombre?: ")
-print(f"\n{nombre}, he pensado un número de entre 1 al 100, tienes OCHO intentos para tratar de adivinar...")
+nombre = input("Hola, ¡bienvenido al juego de 'Adivina el número'! \n\n¿Cuál es tu nombre?: ")
+print(f"\n{nombre}, he pensado un número ENTERO de entre 1 al 100, tienes OCHO intentos para tratar de adivinar...")
+from random import *
+numero = randint(1,100)
+veces = 0
 
+acepta = input("¿Aceptas el reto? (y/n): ")
+
+while str(acepta):
+    if acepta != "y" and acepta != "n":
+        print("Debes ingresar 'y' para si y 'n' para no, favor de reintentar...")
+        acepta = input("Escribe 'y' o 'n': ")
+    elif acepta == "y":
+        supuesto_numero = int(input("\nIngresa el número ENTERO que crees que estoy pensando: "))
+        while supuesto_numero != numero and veces < 8:
+            veces += 1
+            if veces == 8:
+                print("Haz agotado tu número de intentos, adiós.")
+                break
+        if supuesto_numero < 1 or supuesto_numero > 100:
+                print("Tu número no está dentro de los parámetros (debes ingresar un número de entre 1 al 100)")
+        elif supuesto_numero < numero:
+                print("Tú número es menor que el que pensé :(")
+        elif supuesto_numero > numero:
+                print("Tu número es mayor al que pensé :(")
+        if supuesto_numero == numero:
+            print("Haz ganado, tu número es el que pensé! :D ")
+            break
+    elif acepta == "n":
+        print("\nVuelve cuando tengas las agallas >:( ")
+        break
+        
+                #print(f"Tu número ES EL QUE PENSÉ :D \n te ha tomado ")
+                #i
+    
+        
+        
+'''        
+from random import *
+numero = randint(1,100)
+numero_participante = input("Escribe el número que creas que estoy pensando: ")
+'''
+
+'''
 acepta = input("\n¿Aceptas el reto? (y/n): ")
 
 while acepta != "y" and acepta != "n":
@@ -37,7 +78,7 @@ while acepta != "y" and acepta != "n":
 while acepta == "n":
     print("Adiós")
     break
-
+    
 from random import *
 numero = randint(1,100)
 
@@ -52,17 +93,10 @@ while supuesto_numero == int:
         print("Tu número es menor al que pensé :(") 
     elif supuesto_numero == numero:
         print("ACERTASTE!! Tú número es el que pensé")
-        
+'''
+
+
     
-
-
-
-'''
-while supuesto_numero < 1 or supuesto_numero > 100:
-    print("Error, tu número NO está DENTRO de los parámetros establecidos (tu número debe estar entre 1 y 100)")
-    supuesto_numero = input("Escribe un número dentro de los parámetros: ")
-'''
-
 
 
 

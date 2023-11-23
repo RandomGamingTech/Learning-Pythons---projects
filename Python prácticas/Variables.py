@@ -48,8 +48,14 @@ for numero in range (2,51,2):
 print(suma_pares)
 
 '''
+'''
 for indice,item in enumerate(range(50,55)):
     print(indice,item)      
+'''
+
+numero = int(input())
+
+print(type(numero))
     
         
     
