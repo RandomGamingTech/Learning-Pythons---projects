@@ -53,9 +53,6 @@ for indice,item in enumerate(range(50,55)):
     print(indice,item)      
 '''
 
-numero = int(input())
-
-print(type(numero))
     
         
     

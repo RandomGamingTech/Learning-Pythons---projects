@@ -25,81 +25,35 @@ Características:
 
 '''
 
-nombre = input("Hola, ¡bienvenido al juego de 'Adivina el número'! \n\n¿Cuál es tu nombre?: ")
-print(f"\n{nombre}, he pensado un número ENTERO de entre 1 al 100, tienes OCHO intentos para tratar de adivinar...")
+nombre = input("Hola :D ¿cuál es tu nombre: ")
+instrucciones = print(f"\nHola {nombre}, ¡bienvenido al juego de 'adivina el número'!, las reglas son las siguientes: Debes de escribir un NÚMERO entero de entre el 1 al 100.\nNO debes escribirlo con letra, ni tampoco con punto decimal (de lo contrario el programa marcará error y tendrás que reintentarlo de nuevo en otra ocasión).")
+acepta = input(f"\n¿Quieres participar? (responde 'y' para sí y 'n' para no): ")
 from random import *
 numero = randint(1,100)
+supuesto_numero = 0
 veces = 0
-
-acepta = input("¿Aceptas el reto? (y/n): ")
 
 while str(acepta):
     if acepta != "y" and acepta != "n":
-        print("Debes ingresar 'y' para si y 'n' para no, favor de reintentar...")
-        acepta = input("Escribe 'y' o 'n': ")
+        print("Debes ingresar 'y' para sí y 'n' para no")
+        acepta = input("Ingresa 'y' para sí y 'n' para no: ") #Para que el bucle no se EJECUTE INFINITAMENTE, debemos tener una variable YA ESTABLECIDA, y si NO se cumple, ACTUALIZARLA en el MISMO BUCLE (ES IMPORTANTE TENER UNA VARIABLE anteriormente ya establecida.)
     elif acepta == "y":
-        supuesto_numero = int(input("\nIngresa el número ENTERO que crees que estoy pensando: "))
-        while supuesto_numero != numero and veces < 8:
-            veces += 1
+        supuesto_numero = int(input("Ingresa el número que crees que estoy pensando (un número ENTERO del 1 al 100): "))
+        if supuesto_numero < 1 or supuesto_numero > 100: #IMPORTANTE. Para respetar el flujo del programa, PRIMERO, ponemos esta condición, para que supuesto número NO sea ni menor a 1 ni mayor a 100. 
+            print("Error, debes ingresar un número del 1 al 100 (tu número ingresado fue mayor a 100 o menor a 1)")
+        elif supuesto_numero != numero:
+            veces = veces + 1
             if veces == 8:
-                print("Haz agotado tu número de intentos, adiós.")
+                print(f"\n{nombre}, haz excedido el número de intentos permitidos (8), te esteremos esperando en otra ocasión :) ")
                 break
-        if supuesto_numero < 1 or supuesto_numero > 100:
-                print("Tu número no está dentro de los parámetros (debes ingresar un número de entre 1 al 100)")
-        elif supuesto_numero < numero:
-                print("Tú número es menor que el que pensé :(")
-        elif supuesto_numero > numero:
-                print("Tu número es mayor al que pensé :(")
-        if supuesto_numero == numero:
-            print("Haz ganado, tu número es el que pensé! :D ")
+            elif supuesto_numero > numero: #Nota importantísima: Como CONDICIÓN, de que supuesto número SEA IGUAL a número NO se cumple, entonces que supuesto numero sea MAYOR o MENOR que número, ENTRA DENTRO de la IDENTACIÓN del condicional != numero
+                print("\nTu número es MAYOR al que pensé :( ")
+            elif supuesto_numero < numero:
+                print("\nTu número es MENOR al que pensé :( ") 
+        else: #Aquí usamos un else, debido a que la condición del if ""
+            print(f"\nFelicidades {nombre}, ¡haz ganado :D! El número secreto era {numero} y te ha tomado {veces} intentos adivinar el número")
             break
-    elif acepta == "n":
-        print("\nVuelve cuando tengas las agallas >:( ")
+    else: #Aquí usamos else, ya que tenemos DOS condiciones en la primera línea de if, donde si acepta NO es y y acepta NO es n... Como tenemos un condicional donde si acepta LLEGA a ser y, entonces hacemos algo... pero como NO hay una condición específica para n, entonces lo recoge ELSE.
+        print("Vuelve cuando tengas las agallas >:( ")
         break
-        
-                #print(f"Tu número ES EL QUE PENSÉ :D \n te ha tomado ")
-                #i
-    
-        
-        
-'''        
-from random import *
-numero = randint(1,100)
-numero_participante = input("Escribe el número que creas que estoy pensando: ")
-'''
-
-'''
-acepta = input("\n¿Aceptas el reto? (y/n): ")
-
-while acepta != "y" and acepta != "n":
-    print("Debes escribir 'y' o 'n' ")
-    acepta = input("Escribe un valor correcto: ")
-    
-while acepta == "n":
-    print("Adiós")
-    break
-    
-from random import *
-numero = randint(1,100)
-
-supuesto_numero = int(input("Escribe tu número: "))
-
-while supuesto_numero == int:
-    if supuesto_numero < 1 or supuesto_numero > 100:
-        print("Error, tu número  NO ESTÁ dentro de los parámetros")
-    elif supuesto_numero > numero:
-        print("Tu número es mayor al número que pensé :( ")
-    elif supuesto_numero < numero:
-        print("Tu número es menor al que pensé :(") 
-    elif supuesto_numero == numero:
-        print("ACERTASTE!! Tú número es el que pensé")
-'''
-
-
-    
-
-
-
-    
-    
     
