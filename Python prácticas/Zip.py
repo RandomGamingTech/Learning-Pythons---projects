@@ -147,33 +147,5 @@ print(numeros)
 
 '''
 
-print("Ingresa dos números enteros")
-numero1 = int(input("Ingresa tu primer número: "))
-numero2 = int(input("Ingresa tu segundo número: "))
-
-while numero1 or numero2 >=0:
-    if numero1 and numero2 < 0:
-        print("Tus dos números son negativos")
-        break
-    elif numero1 or numero2 >= 0:
-        print("Alguno de tus dos números es positivo")
-        break
     
     
-        if acepta == "y":
-        supuesto_numero = int(input("Ingresa el número que crees que estoy pensando: "))
-        if supuesto_numero != int:
-            print("¡Carácter inválido!, debes ingresar un NÚMERO ENTERO")
-        elif supuesto_numero < 1 or supuesto_numero > 100:
-            print("Tu número no está dentro de los parámetros (debes ingresar un número de entre 1 al 100)")
-        elif supuesto_numero < numero:
-            print("Tú número es menor que el que pensé :(")
-        elif supuesto_numero > numero:
-            print("Tu número es mayor al que pensé :(")
-        elif supuesto_numero != numero:
-            veces = veces + 1
-            if veces == 8:
-                print("Haz sobrepasado el número de intentos, adiós...")
-                break
-    elif acepta == "n":
-        print("Adiós...")
