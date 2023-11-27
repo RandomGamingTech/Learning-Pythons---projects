@@ -1,0 +1,115 @@
+'''
+-- Ejemplo número 1, tenemos aquí una función la cuál creamos para que multiplique el número 1 y el número 2.
+    en vez de usar un print, hemos usado un return para que nos devuelva algo y esto mismo lo podamos almacenar
+    en una variable.
+    
+    Ahora que tenemos nuestra función definida, podemos IMPRIMIR multiplicar para poder multiplicar los números que nos
+    plazca. Esto nos arrojará como valor la multiplicación de 10*50 en pantalla.
+    >>50
+    
+def multiplicar(num1, num2):
+    return num1 * num2
+
+print(multiplicar(5,10))    
+    
+'''
+
+'''
+-- Ejemplo 2, si bien el anterior ejemplo no está mal, generalmente lo que havemos con una función es ALMACENARLA EN    
+    UNA VARIABLE para poder hacer con ella lo que queramos.
+    - Ahora que hemos puesto a resultado DENTRO de una variable, nosotros podemos imprimir resultado, y nos dará 50.
+    
+def multiplicar(num1, num2):
+    return num1 * num2
+
+resultado= multiplicar(5,10)
+print(resultado)    
+    
+'''
+
+'''
+-- Ejemplo 3, también veremos que las funciones en vez de contener solamente el return, también pueden tener la operación o
+    todo su código DENTRO de variables INTERNAS.
+    Esto lo que nos va a devolver ES TODO EL PROCESO que tengamos dentro de nuestra variable total, en otras palabras,
+    nos RETORNARÁ la variable total.
+    
+    Esta es la forma más común en la que las funciones se usan.
+
+def multiplicar(numero1, numero2):
+    total = numero1 * numero2
+    return total
+
+print(multiplicar(5,10))
+
+---------------------------------------------------------------------------------------------------------------------------
+
+- Imprimir nos devuelve un resultado en pantalla, pero luego de eso LA INFORMACIÓN MUERE, lo que quiere decir que no queda almacenada
+    en ningún lugar.
+    - No es común, pero si lo queremos es que además también se imprima algo en pantalla, simplemente PODEMOS AGREGAR un print antes del
+        return, esto para ir viendo qué es lo que está haciendo nuestro código.
+    - Esto nos devolverá dos veces 6, debido al print dentro de la función y luego debido al print que imprime nuestra función multiplicar.
+    
+def multiplicar(numero1, numero2):
+    total = numero1 * numero2
+    print(total)
+    return total
+
+print(multiplicar(3,2))    
+    
+'''
+
+'''
+--  Práctica 1 return
+
+    - Nos piden crear una función que tome 2 argumentos, el primer argumento sirve de base y el segundo argumento sirve como
+        exponente.
+
+def potencia(num1,num2):
+    potencia = num1**num2
+    print(potencia)
+    return potencia
+
+potencia(2,8)
+
+'''
+
+'''
+--  Práctica 2 return
+    -Nos piden crear una función que convierta los dolares a euros mediante la multiplicación de un parámetro por 0.90
+    - Esta función solo toma el argumento usd, el cuál lo trasnformará a euros.
+
+def usd_a_eur(usd):
+    conversion = usd * 0.90
+    print(conversion)
+    return(conversion)
+
+
+dolares = usd_a_eur(50)
+
+'''
+
+'''
+--  Ejemplo 3
+
+    -Nos piden crear una función llamada invertir palabra
+
+def invertir_palabra(word):
+    resultado = word.upper()[::-1]
+    print(resultado)
+    return resultado
+
+palabra = "Python"
+
+invertir_palabra(palabra)
+
+String = "Hola pendejo"
+
+nuevo = String[0:4:2]
+
+print(nuevo)
+
+'''
+    
+string = "Python es genial"
+
+print(string[::2])
