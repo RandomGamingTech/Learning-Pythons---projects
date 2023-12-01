@@ -1,0 +1,236 @@
+'''
+--  Ejemplo 1
+   -Podemos hacer que nuestras funciones interactúen con loops o con control de flujo para hacer
+    que resuelvan distintos tipos de situación.
+    - Con esta función lo que queremos hacer es que se encargue de chequear si un determinado número tiene  
+        3 cifras.
+    - Este código almacena en un return si nuestro número está entre un rango de entre 100 y 999 (recordar que range se come el último número)
+    - Almacenamos en la variable resultado nuestra función creada y le dimos como argumento 658
+    - Luego hemos puesto que si resultado es igual a True, imprima que tiene 3 cifras y si no, que imprima que es MENOR a 3 cifras.
+
+def chequear_3_cifras(numero):
+    return numero in range(100,1000)
+
+resultado = chequear_3_cifras(658)
+if resultado == True:
+    print("Tu número tiene 3 cifras.")
+else:
+    print("Tu número es menor a 3 cifras")
+
+'''
+
+'''
+--  Ejemplo 2
+    Incluso podríamos pasar por nuestra función una variable, por ejemplo suma, digamos es igual a SUMA de DOS VALORES.
+   
+def chequear_3_cifras(numero):
+    return numero in range(100,1000)
+
+suma = 586 + 402
+
+resultado = chequear_3_cifras(suma)
+print(resultado)
+   
+    
+'''
+'''
+-- Ejemplo 3    
+    Ahora en vez de asignarle un número en particular, verificamos con nuestra función TODOS los elementos de una lista y nos devuelva como 
+    información si es verdad, que alguno de sus números tiene 3 cifras 
+
+--  MI EJEMPLO:
+
+lista = [800, 500, 1, 24, 320]
+
+def chequear_3_cifras(lista):
+    for e in lista:
+        if e in range(100,1000):
+            print(f"El número {e} tiene 3 cifras")
+        else:
+            print(f"El número {e} no tiene 3 cifras")
+
+chequear_3_cifras(lista)
+
+----------------------------------------------------------------------------------------------
+
+-- Ejemplo profesor 
+    Aquí en vez de print usamos return y pass de la siguiente manera
+    
+    - Consideraciones:
+        - return es una palabra clave que además de devolvernos un valor, también TERMINA CON EL LOOP, 
+            va a salir de la función. Entonces por más que nos queden elementos por seguir verificando dentro de    
+            nuestro loop, una vez que encuentre que un número de 3 cifras, se acaba, nos devuelve True y se ACABAN
+            las verificaciones...
+            
+            Cada vez que un número de la lista contenga 3 cifras, devolverá True. 
+            Si no, lo pasará.
+            
+            - Esto nos devuelve >> none, ya que enrealidad none es un no objeto.
+            - Si imprimimos el tipo de resultado nos dará la class 'NoneType'
+            - ¿Por qué pasa esto?: porque nuestro loop, cuando invocamos a la función, le pasamos la lista, verificó PRIMERO el 55
+                este no fue, así que fue al else, fue al 99, tampoco es de 3 cifras así que fue al else, Lo pasó por el 6000, tampoco es de 3 cifras
+                así que fue al else y pasó.
+                Por lo que NUNCA ENTRAMOS a este return True y ni siquiera pudimos devolver falso.
+
+
+def chequear_3_cifras(lista):
+    for e in lista:
+        if e in range(100,1000):
+            return True
+        else:
+            pass
+
+resultado = chequear_3_cifras([55,99,6000])
+print(type(resultado))
+
+'''
+
+'''
+--  Ejemplo 4
+    - Ahora supongamos que tenemos al comienzo un número de 3 cifras: 555
+    Si lo ejecutamos, vemos que AHORA SÍ, nos devuelve un objeto de tipo bool, ya que sí pasó por el    
+    return (la primera cifra).
+    
+    - Si imprimimos solamente resultado (sin type), nos devuelve 1 True (ya que 555 contiene 3 cifras)
+    
+    - NOTE! Si pusiéramos MÁS NÚMEROS de 3 cifras en la lista, solamente nos seguirá devolviendo 1 True
+        Ya que cuando return se encuentra con el PRIMER elemento que cumple con la condición, sale del loop.
+        
+    - NOTE! esta función, SOLAMENTE devuelve dos tipos de valores: True o None. JAMÁS DEVUELVE False
+
+def chequear_3_cifras(lista):
+    for e in lista:
+        if e in range(100,1000):
+            return True
+        else:
+            pass
+
+resultado = chequear_3_cifras([555,99,6000])
+print(resultado)
+
+'''
+
+'''
+--    Dicho lo anterior, ¿cómo podríamos hacer que NOS DEVUELVA False?
+--    Un error de principiante es intentar PONER EN EL ELSE un return False,
+        esto NO SIRVE, ya que SIEMPRE NOS DARÍA False, incluso si el número tiene 3 cifras.
+        
+    - ¿Por qué nos devuelve False a pesar de que SI hay un número de 3 cifras?
+        Esto se debe a que entró al return, vió que el PRIMER número no fue de 3 cifras, y se movió al else
+        por este motivo, nos da False aunque haya otro número en la lista que sí cumpla con la condición, ya que
+        return CORTÓ desde el primer elemento de la lista. 
+
+
+def chequear_3_cifras(lista):
+    for e in lista:
+        if e in range(100,1000):
+            return True
+        else:
+            return False
+
+resultado = chequear_3_cifras([55,99,600])
+print(resultado)
+
+----------------------------------------------------------------------------------------------------
+
+--  Cómo deberíamos hacerlo entonces?
+    Lo que debemos hacer es PONER otro return que devuelva False AL FINAL, a la MISMA ALTURA del bucle, para que SI
+    NO PASÓ POR EL PRIMER RETURN, una vez que SALGA del loop, nos de False.
+    
+    - Esto lo explicamos de la siguiente manera. El primer return nos devuelve True SI UN ELEMENTO de la lista TIENE 3 CIFRAS
+        Si no tiene 3 cifras, pasará al número siguiente.
+    - Como el primer return NO ENCUENTRA NINGÚN NÚMERO de 3 cifras, sale de ese FLUJO.
+    - Una vez que sale del control flujo, lo ÚNICO que queda, es pasar por el return que está indentado a la ALTURA del BUCLE.
+    - Listo, ahora si hay realmente UN SOLO número que tenga 3 cifras, nos devolverá True, pero si NO, nos devolverá lo del segundo 
+        return o sea, False- 
+
+def chequear_3_cifras(lista):
+    for e in lista:
+        if e in range(100,1000):
+            return True
+        else:
+            pass
+    return False
+
+resultado = chequear_3_cifras([55,99,60])
+print(resultado)
+
+'''
+
+'''
+--  Ejemplo 5
+    - Ahora elevaremos la complejidad de nuestro código
+    - Creamos una función que además de que nos diga que si el número es de 3 cifras, NOS DEVUELVA UNA LISTA
+        con los números que sí tienen 3 cifras.
+    - Agregamos una lista VACÍA en nuestra definición, llamada lista_3_cifras esto es para que SE ACUMULEN ALLÍ, los    
+        números que efectivamente, tengan 3 cifras.
+    - QUITAMOS EL RETURN ya que NO QUEREMOS que el bucle SE CIERRE.
+    - En else, cada vez que NO ENCUENTRE un número de 3 cifras, que lo PASE.
+    Y agregamos otro return que devuelva la lista_3_cifras (ya concatenada con todos los elementos que sí tenían 3 cifras)
+
+def chequear_3_cifras(lista):
+    
+    lista_3_cifras = []
+    
+    for e in lista:
+        if e in range(100,1000):
+            lista_3_cifras.append(e)
+        else:
+            pass
+    return lista_3_cifras
+
+resultado = chequear_3_cifras([555,99,600])
+print(resultado)
+
+'''
+
+'''
+--  Práctica 1
+
+def todos_positivos(lista):
+    for n in lista:
+        if n >= 0:
+            pass
+        else:
+            return False
+    return True
+
+lista_numeros = [20, 22, 10, 26]
+
+positivos = todos_positivos(lista_numeros)
+print(positivos)
+    
+'''
+
+'''
+--  Práctica 2
+    - Nos piden crear una función que sume los números de una lista almacenada en la variable siempre y cuándo sean mayores a 0 y menores
+        a 1000 y devuelva el resultado de dicha suma.
+        
+        - Tuvimos algunas dificultades para encontrar la forma de SUMAR los elementos que cumplían con la condición.
+        - Nos dimos cuenta, que la variable donnde se llevará a cabo la suma acumulativa, debe de ir AFUERA del FLUJO DE CONTROL (if, elif, else)
+    
+def suma_menores(lista):
+    suma = 0 #Nota importante, aquí debemos SIEMPRE poner la VARIABLE donde se ALMACENARÁ nuestra SUMA ACUMULATIVA, ya que si la ponemos dentro del CONTROL DE FLUJO, NO SERVIRÁ.
+    for n in lista:
+        if n >= 0 and n <= 1000:
+            suma += n
+        else:
+            pass
+    return suma
+    print(suma)
+        
+lista_numeros = [5, 500, 10, 800, 3000, 2000, 5000]
+
+lista = suma_menores(lista_numeros)
+print(lista)    
+        
+'''
+
+def cantidad_pares(lista_pares):
+    lista = [p for p in lista_pares if p % 2 == 0]
+    return len(lista)
+
+lista_numeros = list(range(1,201))
+print(f"La cantidad de números pares en tu lista es {cantidad_pares(lista_numeros)}")
+

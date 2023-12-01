@@ -110,6 +110,3 @@ print(nuevo)
 
 '''
     
-string = "Python es genial"
-
-print(string[::2])

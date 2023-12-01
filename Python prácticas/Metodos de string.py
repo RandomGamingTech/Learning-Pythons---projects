@@ -124,3 +124,26 @@
 #texto2 = texto.replace("difícil", "fácil")
 #print(texto2.replace("mala","buena"))
 
+
+'''
+--  slicing
+En el slicing de una cadena en Python, la notación general es [start:stop:step]. Aquí hay una explicación de cada posición:
+
+start: El índice de inicio del subconjunto de la cadena que estás seleccionando. Si no se proporciona, se asume 0 (el principio de la cadena).
+
+stop: El índice de fin del subconjunto de la cadena que estás seleccionando. Este índice no se incluirá en el resultado. Si no se proporciona, se asume la longitud total de la cadena (el final de la cadena).
+
+step: El tamaño del paso entre los elementos seleccionados. Si no se proporciona, se asume 1 (selecciona cada elemento).
+
+Por ejemplo:
+
+cadena[1:5]: Selecciona los elementos desde el índice 1 hasta el 4 (no incluido), es decir, los elementos en las posiciones 1, 2, 3.
+
+cadena[:5]: Selecciona los elementos desde el principio hasta el 4 (no incluido), es decir, los elementos en las posiciones 0, 1, 2, 3.
+
+cadena[2:]: Selecciona los elementos desde el índice 2 hasta el final de la cadena.
+
+cadena[::2]: Selecciona cada segundo elemento desde el principio hasta el final.
+
+cadena[::-1]: Invierte la cadena.
+'''
