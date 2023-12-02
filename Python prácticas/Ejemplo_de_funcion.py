@@ -84,6 +84,3 @@ print(cafe,precio)
 
 
 
-
-
-
