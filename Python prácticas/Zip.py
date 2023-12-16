@@ -146,6 +146,42 @@ numeros = list(zip(lista1,lista2,lista3))
 print(numeros)
 
 '''
+# def contar_primos(numero):
+#     primos = [2]
+#     iteración = 3
+    
+#     if numero < 2:
+#         return 0
+    
+#     while iteración <= numero:
+#         for e in range(3, iteración, 2):
+#             if iteración % e == 0:
+#                 iteración += 2
+#                 break
+#         else:
+#             primos.append(iteración)
+#             iteración += 2
+#     return f"Los números primos dentro de tu número son: {primos}.\nEn total hay {len(primos)} números primos dentro de tu número."
+    
+# print(contar_primos(50))
+            
+            
+def cuantos_caben():
+    mensaje = print("Bienvenido al programa de cuántos caben. Este programa te dice cuántas veces cabe un número dentro de otro.")
+    num1 = int(input("Ingresa el número a analizar: "))
+    num2 = int(input("Ingresa el número que quieres verificar cuántas veces cabe dentro del número a analizar: "))
+    
+    lista_números = []
+    contador = 0
+    
+    while num1 < 0:
+        print("Error, tu número debe ser positivo")
+        num1 = int(input("Ingresa un número válido"))
+    
+    while contador < num1:
+        for n in range(0, num1 + 1):
+            contador += 1
+            print(n)
 
-    
-    
+print(cuantos_caben())
+            
